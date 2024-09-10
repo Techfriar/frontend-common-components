@@ -1,0 +1,26 @@
+.profileImageContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.altTextWrapper {
+  font-size: 0.8rem;
+  text-align: center;
+  img {
+    border-radius: 0;
+  }
+}
+
+.profileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  font-size: 0.8rem;
+}
+
+.fileInput {
+  display: none;
+}

@@ -1,0 +1,27 @@
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  .ant-switch {
+    height: 16px;
+    position: relative;
+    .ant-switch-handle {
+      top: 50%;
+      bottom: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &:not(.ant-switch.ant-switch-checked .ant-switch-handle) {
+    inset-inline-start: 0px;
+  }
+  & .ant-switch.ant-switch-checked .ant-switch-handle {
+    inset-inline-start: calc(100% - 18px);
+  }
+}
+
+.switch {
+  margin-right: 0.5rem;
+}
+
+.label {
+  font-size: 1rem;
+}

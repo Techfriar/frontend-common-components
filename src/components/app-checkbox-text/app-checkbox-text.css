@@ -1,0 +1,12 @@
+.appCheckboxText {
+  .checkboxText {
+    & > span:last-child {
+      line-height: unset;
+      & > span {
+        font-size: 15px;
+        font-weight: 500;
+        text-align: left;
+      }
+    }
+  }
+}

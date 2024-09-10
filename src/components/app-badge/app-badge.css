@@ -1,0 +1,11 @@
+.appBadge {
+  .ribbonWrapper {
+    .ant-ribbon-wrapper {
+      position: relative;
+      .ant-ribbon {
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+}

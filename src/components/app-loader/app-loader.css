@@ -1,0 +1,16 @@
+.loader {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: (0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  z-index: 99;
+  * {
+    transform: scale(1.5);
+  }
+}

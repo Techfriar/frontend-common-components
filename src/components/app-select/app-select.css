@@ -1,0 +1,21 @@
+.appselect {
+  *:focus,
+  *:active,
+  *:focus-within {
+    outline: 0 !important;
+    box-shadow: unset !important;
+  }
+  .ant-select {
+    &:hover {
+      .ant-select-selector {
+        border-color: #d9d9d9 !important;
+      }
+    }
+  }
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

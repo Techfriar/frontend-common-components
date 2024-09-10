@@ -1,0 +1,19 @@
+.appTextArea {
+  .ant-input-outlined {
+    border-color: #bfbebe;
+    &:hover {
+      border-color: #bfbebe;
+    }
+  }
+
+  *:focus {
+    outline: 0 !important;
+    box-shadow: unset !important;
+  }
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

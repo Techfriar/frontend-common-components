@@ -1,0 +1,11 @@
+.appTab {
+  width: max-content;
+  .ant-tag {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    border-radius: 8px;
+    padding: 4px 8px;
+    line-height: normal;
+  }
+}

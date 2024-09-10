@@ -1,0 +1,12 @@
+.appButton {
+  width: max-content;
+
+  .ant-btn {
+    padding: 12px;
+    &:hover {
+      border-color: transparent !important;
+      outline: unset !important;
+      box-shadow: unset !important;
+    }
+  }
+}

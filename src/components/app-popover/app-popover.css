@@ -1,0 +1,5 @@
+.appPopover {
+  .popoverComponent {
+    width: max-content;
+  }
+}

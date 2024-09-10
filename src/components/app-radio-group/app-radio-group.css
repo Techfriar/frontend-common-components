@@ -1,0 +1,6 @@
+.appRadioGroup {
+  .radioGroup {
+    display: flex;
+    align-items: center;
+  }
+}

@@ -1,0 +1,31 @@
+.appOtpField {
+  .otpInputStyle {
+    gap: 0.5rem;
+    & input {
+      margin: 0 5px;
+      font-size: 24px;
+      border-radius: 10px;
+      border: none;
+      width: 3.125rem !important;
+      height: 2.6875rem !important;
+      background-color: #f6f7f9 !important;
+    }
+  }
+  .resendWrap {
+    margin-top: 1rem;
+    & .forgotPassword {
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 150%;
+      letter-spacing: -0.0175rem;
+      cursor: pointer;
+      .resendTimer {
+        color: rgb(255, 0, 0);
+      }
+      .resendBtn {
+        color: #009046;
+      }
+    }
+  }
+}

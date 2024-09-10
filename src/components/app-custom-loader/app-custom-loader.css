@@ -1,0 +1,116 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: (0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  z-index: 99;
+}
+
+/*code for custom loading icon*/
+
+.loader {
+  position: relative;
+  width: 80px;
+  margin-left: 45%;
+  margin-top: 25%;
+}
+
+.loader span {
+  display: block;
+  transform-origin: 40px 40px;
+  animation: ding 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loader span::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgb(0, 0, 0);
+  margin: -4px 0 0 -4px;
+}
+
+.loader span:nth-child(1) {
+  animation-delay: -0.36s;
+}
+
+.loader span:nth-child(1):before {
+  top: 63px;
+  left: 63px;
+}
+
+.loader span:nth-child(2) {
+  animation-delay: -0.72s;
+}
+
+.loader span:nth-child(2):before {
+  top: 68px;
+  left: 56px;
+}
+
+.loader span:nth-child(3) {
+  animation-delay: -0.108s;
+}
+
+.loader span:nth-child(3):before {
+  top: 71px;
+  left: 48px;
+}
+.loader span:nth-child(4) {
+  animation-delay: -0.144s;
+}
+
+.loader span:nth-child(4):before {
+  top: 72px;
+  left: 40px;
+}
+
+.loader span:nth-child(5) {
+  animation-delay: -0.18;
+}
+
+.loader span:nth-child(5):before {
+  top: 71px;
+  left: 32px;
+}
+
+.loader span:nth-child(6) {
+  animation-delay: -0.216s;
+}
+
+.loader span:nth-child(6):before {
+  top: 68px;
+  left: 24px;
+}
+
+.loader span:nth-child(7) {
+  animation-delay: -0.252s;
+}
+
+.loader span:nth-child(7):before {
+  top: 63px;
+  left: 17px;
+}
+
+.loader span:nth-child(8) {
+  animation-delay: -0.288s;
+}
+
+.loader span:nth-child(8):before {
+  top: 56px;
+  left: 12px;
+}
+
+@keyframes ding {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
