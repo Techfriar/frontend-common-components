@@ -35,4 +35,4 @@ export { default as AppTable } from "./components/app-table/app-table";
 export { default as AppProgress } from "./components/app-progress/app-progress";
 export { default as AppPopover } from "./components/app-popover/app-popover";
 export { default as AppFloatButton } from "./components/app-float-button/app-float-button";
-
+export { default as AppPhoneInput } from "./components/app-phone-input/app-phone-input";

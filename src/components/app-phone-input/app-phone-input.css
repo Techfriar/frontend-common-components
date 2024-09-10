@@ -1,0 +1,9 @@
+.inputContainer {
+ .react-tel-input .flag-dropdown {
+    height: 40px !important;
+  }
+ .react-tel-input .form-control {
+    height: 40px !important;
+    width: 100%;
+  }
+}
