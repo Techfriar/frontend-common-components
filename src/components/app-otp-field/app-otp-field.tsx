@@ -11,7 +11,7 @@ interface AppOtpFieldProps {
   onResendOtp?: () => void;
   setResendTimeout: (timeout: number) => void;
   className?: string;
-  resendTxt?: string;
+  resendTxt?: React.ReactNode;
   resendTime: string;
 }
 

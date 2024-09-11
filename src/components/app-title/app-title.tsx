@@ -5,7 +5,7 @@ import "./app-title.css";
 const { Title, Text } = Typography;
 
 interface TitleProps {
-  mainText: string;
+  mainText: React.ReactNode;
   className?: string;
   subText?: string;
   level?: 1 | 2 | 3 | 4 | 5;

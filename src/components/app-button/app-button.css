@@ -3,6 +3,7 @@
 
   .ant-btn {
     padding: 12px;
+    height: unset;
     &:hover {
       border-color: transparent !important;
       outline: unset !important;

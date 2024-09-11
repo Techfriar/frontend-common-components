@@ -5,10 +5,7 @@
       margin: 0 5px;
       font-size: 24px;
       border-radius: 10px;
-      border: none;
-      width: 3.125rem !important;
-      height: 2.6875rem !important;
-      background-color: #f6f7f9 !important;
+      border-color: #f6f7f9;
     }
   }
   .resendWrap {
