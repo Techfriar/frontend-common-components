@@ -1,5 +1,6 @@
 .sideBar {
   height: 100vh;
+  width: max-content;
   .sider {
     height: 100%;
     .ant-layout-sider-children {
@@ -9,16 +10,18 @@
       row-gap: 2.875rem;
       .ant-menu {
         border: none;
+        &::after {
+          display: none;
+        }
+        &::before {
+          display: none;
+        }
       }
     }
   }
 }
 
-.logo {
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.sideBarHead {
   padding: 16px;
 }
 

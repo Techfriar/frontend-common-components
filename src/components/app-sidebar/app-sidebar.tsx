@@ -11,15 +11,21 @@ interface SidebarProps {
     icon: React.ReactNode;
     tag?: React.ReactNode;
   }[];
-  logo?: React.ReactNode;
+  sideBarHead?: React.ReactNode;
   footerLinks?: {
     label: string;
     path: string;
+    icon: React.ReactNode;
   }[];
   className?: string;
 }
 
-const Sidebar = ({ links, logo, footerLinks, className }: SidebarProps) => {
+const Sidebar = ({
+  links,
+  sideBarHead,
+  footerLinks,
+  className,
+}: SidebarProps) => {
   const handleNavigation = (path: string) => {
     window.location.href = path;
   };
@@ -37,6 +43,7 @@ const Sidebar = ({ links, logo, footerLinks, className }: SidebarProps) => {
 
   const footerMenuItems = footerLinks?.map((link) => ({
     key: link.path,
+    icon: link.icon,
     label: (
       <span onClick={() => handleNavigation(link.path)}>{link.label}</span>
     ),
@@ -45,7 +52,7 @@ const Sidebar = ({ links, logo, footerLinks, className }: SidebarProps) => {
   return (
     <div className={`sideBar ${className}`}>
       <Sider className={"sider"}>
-        <div className={"logo"}>{logo}</div>
+        <div className={"sideBarHead"}>{sideBarHead}</div>
         <Menu mode="inline" className={"menu"} items={menuItems} />
         {footerLinks && (
           <div className={"footer"}>
