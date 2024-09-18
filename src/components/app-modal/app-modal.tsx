@@ -13,6 +13,7 @@ interface AppModalProps {
   alignTitleLeft?: boolean;
   className?: string;
   closeIcon?: React.ReactNode;
+  width?: number;
 }
 
 const AppModal = ({
@@ -25,15 +26,17 @@ const AppModal = ({
   alignTitleLeft = false,
   className,
   closeIcon,
+  width,
 }: AppModalProps) => {
   return (
-    <div className={`AppModal ${className}`}>
+    <div>
       <Modal
         open={visible}
+        width={width}
         onCancel={onClose}
         footer={null}
         closeIcon={closeIcon || <CloseOutlined />}
-        className={"modal"}
+        className={className}
       >
         <div className={"header"}>
           {title && (

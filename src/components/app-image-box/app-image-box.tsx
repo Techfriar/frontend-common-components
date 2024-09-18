@@ -17,7 +17,7 @@ interface AppImageBoxProps {
 const AppImageBox = ({
   width = 100,
   height = 100,
-  text = "",
+  text,
   image,
   className,
 }: AppImageBoxProps) => {
@@ -31,9 +31,7 @@ const AppImageBox = ({
         alt={text}
       />
       {text && (
-        <span className={"text"} dangerouslySetInnerHTML={{ __html: text }}>
-          {text}
-        </span>
+        <span className={"text"} dangerouslySetInnerHTML={{ __html: text }} />
       )}
     </div>
   );
