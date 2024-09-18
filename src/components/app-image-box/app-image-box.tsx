@@ -30,7 +30,11 @@ const AppImageBox = ({
         src={image.src}
         alt={text}
       />
-      {text && <span className={"text"}>{text}</span>}
+      {text && (
+        <span className={"text"} dangerouslySetInnerHTML={{ __html: text }}>
+          {text}
+        </span>
+      )}
     </div>
   );
 };
