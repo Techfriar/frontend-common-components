@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import { Input } from "antd";
 import {
   ChangeEventHandler,
@@ -24,6 +24,8 @@ interface AppPasswordInputProps {
   triggerFocus?: boolean;
   errorMessage?: string;
   autoComplete?: string;
+  icon?: React.ReactNode;
+  showIcon?: boolean;
 }
 
 const AppPasswordInput = ({
@@ -40,7 +42,10 @@ const AppPasswordInput = ({
   className,
   errorMessage,
   isAutoFocus,
+  triggerFocus,
   autoComplete = "new-password",
+  icon,
+  showIcon = true,
 }: AppPasswordInputProps) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -67,9 +72,11 @@ const AppPasswordInput = ({
           autoFocus={isAutoFocus}
           autoComplete={autoComplete}
         />
-        <span className={"icon"} onClick={togglePasswordVisibility}>
-          {Icons.eyePassword}
-        </span>
+        {showIcon && (
+          <span className={"icon"} onClick={togglePasswordVisibility}>
+            {icon || Icons.eyePassword}
+          </span>
+        )}
       </div>
       {errorMessage && <div className={"error"}>{errorMessage}</div>}
     </div>

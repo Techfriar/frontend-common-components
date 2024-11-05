@@ -6,9 +6,11 @@ const { Sider } = Layout;
 
 interface SidebarProps {
   links: {
+    onClick?: () => void;
     label: string;
     path: string;
     icon: React.ReactNode;
+    activeIcon?: React.ReactNode;
     tag?: React.ReactNode;
   }[];
   sideBarHead?: React.ReactNode;
@@ -16,8 +18,10 @@ interface SidebarProps {
     label: string;
     path: string;
     icon: React.ReactNode;
+    activeIcon?: React.ReactNode;
   }[];
   className?: string;
+  activeLink?: string;
 }
 
 const Sidebar = ({
@@ -25,16 +29,30 @@ const Sidebar = ({
   sideBarHead,
   footerLinks,
   className,
+  activeLink,
 }: SidebarProps) => {
   const handleNavigation = (path: string) => {
-    window.location.href = path;
+    if (path) {
+      window.location.href = path;
+    }
+  };
+
+  const handleClick = (path: string, onClick?: () => void) => {
+    if (onClick) {
+      onClick();
+    } else {
+      handleNavigation(path);
+    }
   };
 
   const menuItems = links.map((link) => ({
-    key: link.path,
-    icon: link.icon,
+    key: link.path || link.label,
+
+    icon:
+      link.path === activeLink && link.activeIcon ? link.activeIcon : link.icon,
+    className: link.path === activeLink ? "active" : "",
     label: (
-      <span onClick={() => handleNavigation(link.path)}>
+      <span onClick={() => handleClick(link.path, link.onClick)}>
         {link.label}
         {link.tag && <span className={"tag"}>{link.tag}</span>}
       </span>
@@ -43,7 +61,9 @@ const Sidebar = ({
 
   const footerMenuItems = footerLinks?.map((link) => ({
     key: link.path,
-    icon: link.icon,
+    icon:
+      link.path === activeLink && link.activeIcon ? link.activeIcon : link.icon,
+    className: link.path === activeLink ? "active" : "",
     label: (
       <span onClick={() => handleNavigation(link.path)}>{link.label}</span>
     ),

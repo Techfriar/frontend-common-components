@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { Image } from "antd";
 import "./app-image-box.css";
 
@@ -12,6 +12,7 @@ interface AppImageBoxProps {
   text?: string;
   image: ImageType;
   className?: string;
+  handleClick?: MouseEventHandler<HTMLElement>;
 }
 
 const AppImageBox = ({
@@ -20,9 +21,10 @@ const AppImageBox = ({
   text,
   image,
   className,
+  handleClick,
 }: AppImageBoxProps) => {
   return (
-    <div className={`appImageBox ${className}`}>
+    <div className={`appImageBox ${className}`} onClick={handleClick}>
       <Image
         preview={false}
         width={width}

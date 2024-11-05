@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, InputRef } from "antd";
+import { Input, InputProps, InputRef } from "antd";
 import {
   ChangeEventHandler,
   KeyboardEventHandler,
@@ -10,7 +10,7 @@ import {
 } from "react";
 import "./app-input.css";
 
-interface AppInputProps {
+interface AppInputProps extends InputProps {
   className?: string;
   label?: string;
   name?: string;
@@ -50,6 +50,7 @@ const AppInput = ({
   errorMessage,
   suffixIcon,
   prefixIcon,
+  ...props
 }: AppInputProps) => {
   const inputRef = useRef<InputRef>(null);
 
@@ -79,6 +80,7 @@ const AppInput = ({
         ref={inputRef}
         prefix={prefixIcon && prefixIcon}
         suffix={suffixIcon && suffixIcon}
+        {...props}
       />
 
       {errorMessage && <div className={"error"}>{errorMessage}</div>}

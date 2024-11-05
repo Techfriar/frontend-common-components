@@ -1,9 +1,9 @@
 import React from "react";
-import { Select } from "antd";
+import { Select, SelectProps } from "antd";
 import { MouseEventHandler } from "react";
 import "./app-select.css";
 
-interface AppSelectProps {
+interface AppSelectProps extends SelectProps {
   className?: string;
   value?: string | null;
   dataTestId?: string;
@@ -26,6 +26,7 @@ const AppSelect = ({
   placeholder,
   className,
   errorMessage,
+  ...props
 }: AppSelectProps) => {
   return (
     <div className={`appselect ${className}`}>
@@ -37,6 +38,7 @@ const AppSelect = ({
         onChange={(value: string | string[]) =>
           handleChange && handleChange(value)
         }
+        {...props}
       >
         {options &&
           options.map((option, i) => (

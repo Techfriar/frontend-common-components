@@ -47,6 +47,7 @@ const AppChart = ({
   className,
   height = 400,
   width = 600,
+  ...props
 }: AppChartProps) => {
   const renderChart = () => {
     switch (type) {

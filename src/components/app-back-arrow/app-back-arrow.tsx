@@ -1,12 +1,14 @@
 import React from "react";
+import { MouseEventHandler } from "react";
 import Icons from "../../themes/icons/icons";
 import "./app-back-arrow.css";
 
 interface BackArrowProps {
   text?: string;
-  href: string;
+  href?: string;
   className?: string;
   backIcon?: React.ReactNode;
+  onClick?: MouseEventHandler<HTMLElement>;
 }
 
 const AppBackArrow = ({
@@ -14,9 +16,14 @@ const AppBackArrow = ({
   href,
   className,
   backIcon,
+  onClick,
 }: BackArrowProps) => {
-  const handleNavigation = () => {
-    window.location.href = href;
+  const handleNavigation: MouseEventHandler<HTMLElement> = (event) => {
+    if (onClick) {
+      onClick(event);
+    } else if (href) {
+      window.location.href = href;
+    }
   };
 
   return (

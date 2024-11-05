@@ -5,6 +5,12 @@
       border-color: #bfbebe;
     }
   }
+  .ant-input::placeholder {
+    color: #202123 !important;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+  }
 
   *:focus {
     outline: 0 !important;
