@@ -25,6 +25,7 @@ interface AppPasswordInputProps {
   errorMessage?: string;
   autoComplete?: string;
   icon?: React.ReactNode;
+  hiddenIcon?: React.ReactNode;
   showIcon?: boolean;
 }
 
@@ -45,6 +46,7 @@ const AppPasswordInput = ({
   triggerFocus,
   autoComplete = "new-password",
   icon,
+  hiddenIcon,
   showIcon = true,
 }: AppPasswordInputProps) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -74,7 +76,9 @@ const AppPasswordInput = ({
         />
         {showIcon && (
           <span className={"icon"} onClick={togglePasswordVisibility}>
-            {icon || Icons.eyePassword}
+            {!showPassword
+              ? icon || Icons.eyePassword
+              : hiddenIcon || Icons.iconHiddenIcon}
           </span>
         )}
       </div>
