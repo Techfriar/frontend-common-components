@@ -1,4 +1,6 @@
 .appselect {
+  font-weight: 500;
+  font-size: var(--font-14);
   *:focus,
   *:active,
   *:focus-within {
@@ -14,7 +16,6 @@
         font-size: 14px;
         font-weight: 500;
         line-height: normal;
-        
       }
     }
     &:hover {

@@ -4,17 +4,17 @@ import PhoneInput, { CountryData } from "react-phone-input-2";
 import "./app-phone-input.css";
 
 interface AppPhoneInputProps {
-  value: string;
   countryCode?: string;
+  phone: string;
   handleChange: (phone: string, countryCode: string, uniCode: string) => void;
   className: string;
   id: string;
 }
 
 const AppPhoneInput = ({
-  value,
   handleChange,
   countryCode,
+  phone,
   className,
   id,
 }: AppPhoneInputProps) => {
@@ -32,10 +32,19 @@ const AppPhoneInput = ({
     <div className={className}>
       <div className={"inputContainer"} ref={wrapperRef}>
         <PhoneInput
-          value={value}
-          country={"ae"}
+          value={`+${countryCode}${phone}`}
+          country={
+            (countryCode && phone) || (countryCode != "" && phone != "")
+              ? ""
+              : "us"
+          }
+          countryCodeEditable={false}
           onChange={(phone, country: CountryData) => {
-            handleChange(phone, `+${country.dialCode}`, country.countryCode);
+            handleChange(
+              phone.replace(country.dialCode, ""),
+              country.dialCode,
+              country.countryCode
+            );
           }}
           enableSearch={true}
           inputProps={{ required: true }}
