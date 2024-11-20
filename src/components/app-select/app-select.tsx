@@ -16,6 +16,7 @@ interface AppSelectProps extends SelectProps {
   required?: boolean;
   placeholder?: string;
   errorMessage?: string;
+  showSearch?:boolean;
 }
 
 const AppSelect = ({
@@ -26,12 +27,14 @@ const AppSelect = ({
   placeholder,
   className,
   errorMessage,
+  showSearch,
   ...props
 }: AppSelectProps) => {
   return (
     <div className={`appselect ${className}`}>
       <Select
         className={"select"}
+        showSearch={showSearch}
         disabled={disabled}
         value={value}
         placeholder={placeholder}
