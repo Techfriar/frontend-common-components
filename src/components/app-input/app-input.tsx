@@ -29,6 +29,7 @@ interface AppInputProps extends InputProps {
   errorMessage?: string;
   suffixIcon?: React.ReactNode;
   prefixIcon?: React.ReactNode;
+  required?:boolean;
 }
 
 const AppInput = ({
@@ -50,6 +51,7 @@ const AppInput = ({
   errorMessage,
   suffixIcon,
   prefixIcon,
+  required,
   ...props
 }: AppInputProps) => {
   const inputRef = useRef<InputRef>(null);
@@ -76,7 +78,7 @@ const AppInput = ({
         onClick={onClick}
         defaultValue={defaultValue}
         onPressEnter={onPressEnter}
-        placeholder={placeholder}
+        placeholder={`${required ? placeholder + " (required)" : placeholder}`}
         ref={inputRef}
         prefix={prefixIcon && prefixIcon}
         suffix={suffixIcon && suffixIcon}

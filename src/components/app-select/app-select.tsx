@@ -16,7 +16,7 @@ interface AppSelectProps extends SelectProps {
   required?: boolean;
   placeholder?: string;
   errorMessage?: string;
-  showSearch?:boolean;
+  showSearch?: boolean;
 }
 
 const AppSelect = ({
@@ -28,6 +28,7 @@ const AppSelect = ({
   className,
   errorMessage,
   showSearch,
+  required,
   ...props
 }: AppSelectProps) => {
   return (
@@ -36,20 +37,20 @@ const AppSelect = ({
         className={"select"}
         showSearch={showSearch}
         disabled={disabled}
-        value={value}
-        placeholder={placeholder}
+        value={value?.length ? value : null}
+        placeholder={`${required ? placeholder + " (required)" : placeholder}`}
         onChange={(value: string | string[]) =>
           handleChange && handleChange(value)
         }
+        filterOption={(input, options) =>
+          (options?.label || "")
+            .toString()
+            .toLowerCase()
+            .includes(input.toLowerCase())
+        }
+        options={options}
         {...props}
-      >
-        {options &&
-          options.map((option, i) => (
-            <Select.Option key={option.value} value={option.value}>
-              {option.label}
-            </Select.Option>
-          ))}
-      </Select>
+      ></Select>
       {errorMessage && <div className={"error"}>{errorMessage}</div>}
     </div>
   );

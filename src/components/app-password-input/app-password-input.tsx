@@ -77,8 +77,8 @@ const AppPasswordInput = ({
         {showIcon && (
           <span className={"icon"} onClick={togglePasswordVisibility}>
             {!showPassword
-              ? icon || Icons.eyePassword
-              : hiddenIcon || Icons.iconHiddenIcon}
+              ? icon || Icons.iconHiddenIcon
+              : hiddenIcon || Icons.eyePassword}
           </span>
         )}
       </div>
