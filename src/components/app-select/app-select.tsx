@@ -3,6 +3,12 @@ import { Select, SelectProps } from "antd";
 import { MouseEventHandler } from "react";
 import "./app-select.css";
 
+interface Options {
+  value: string;
+  label: string;
+  flag?: string;
+}
+
 interface AppSelectProps extends SelectProps {
   className?: string;
   value?: string | null;
@@ -11,7 +17,7 @@ interface AppSelectProps extends SelectProps {
   disabled?: boolean;
   handleChange?: (value: string | string[]) => void;
   onClick?: MouseEventHandler<HTMLElement>;
-  options?: Array<{ value: string; label: string }>;
+  options?: Options[];
   onSelectChange?: (value: string) => void;
   required?: boolean;
   placeholder?: string;
@@ -48,7 +54,32 @@ const AppSelect = ({
             .toLowerCase()
             .includes(input.toLowerCase())
         }
-        options={options}
+        options={options?.map(({ value, label, flag }) => ({
+          label: (
+            <>
+              {flag ? (
+                <div
+                  style={{
+                    display: "grid",
+                    alignItems: "center",
+                    gridTemplateColumns: "0.2fr 1fr",
+                    gap: 12,
+                  }}
+                >
+                  <img
+                    src={flag}
+                    alt={label}
+                    style={{ width: 32, height: 20 }}
+                  />
+                  <span>{label}</span>
+                </div>
+              ) : (
+                <span>{label}</span>
+              )}
+            </>
+          ),
+          value,
+        }))}
         {...props}
       ></Select>
       {errorMessage && <div className={"error"}>{errorMessage}</div>}
