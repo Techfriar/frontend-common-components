@@ -2,11 +2,13 @@
 
 import { Input, InputProps, InputRef } from "antd";
 import {
+  ChangeEvent,
   ChangeEventHandler,
   KeyboardEventHandler,
   MouseEventHandler,
   useEffect,
   useRef,
+  useState,
 } from "react";
 import "./app-input.css";
 
@@ -29,7 +31,7 @@ interface AppInputProps extends InputProps {
   errorMessage?: string;
   suffixIcon?: React.ReactNode;
   prefixIcon?: React.ReactNode;
-  required?:boolean;
+  required?: boolean;
 }
 
 const AppInput = ({
@@ -55,6 +57,8 @@ const AppInput = ({
   ...props
 }: AppInputProps) => {
   const inputRef = useRef<InputRef>(null);
+  const [inputValue, setInputValue] = useState<string>(value || "");
+  const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
     if (isAutoFocus && inputRef.current) {
@@ -62,10 +66,32 @@ const AppInput = ({
     }
   }, [triggerFocus, isAutoFocus]);
 
+  useEffect(() => {
+    if (value !== undefined) {
+      setInputValue(value);
+    }
+  }, [value]);
+
   const placeholder = isOptional ? `${label} (optional)` : label;
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    setIsTyping(e.target.value.length > 0);
+    handleChange?.(e);
+  };
 
   return (
     <div className={`appInput ${className}`}>
+      {/* Show placeholder only if user hasn't started typing */}
+      {required && !isTyping && !inputValue && (
+        <div className="placeHolder" onClick={() => inputRef.current?.focus()}>
+          <label className="requiredText" htmlFor={id}>
+            {placeholder}
+          </label>
+          <span className="star">*</span>
+        </div>
+      )}
+
       <Input
         type={type}
         data-test-id={dataTestId}
@@ -73,12 +99,12 @@ const AppInput = ({
         disabled={disabled}
         name={name}
         className={"input"}
-        value={value}
-        onChange={handleChange}
+        value={inputValue}
+        onChange={handleInputChange}
         onClick={onClick}
         defaultValue={defaultValue}
         onPressEnter={onPressEnter}
-        placeholder={`${required ? placeholder + " (required)" : placeholder}`}
+        placeholder={`${required ? "" : placeholder}`}
         ref={inputRef}
         prefix={prefixIcon && prefixIcon}
         suffix={suffixIcon && suffixIcon}

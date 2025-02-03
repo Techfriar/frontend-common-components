@@ -2,7 +2,7 @@ import React from "react";
 import { Badge, BadgeProps as AntdBadgeProps } from "antd";
 import "./app-badge.css";
 
-interface AppBadgeProps extends AntdBadgeProps {
+interface AppBadgeProps extends Omit<AntdBadgeProps, "content"> {
   content?: React.ReactNode;
   children: React.ReactNode;
   className?: string;

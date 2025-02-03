@@ -1,6 +1,6 @@
 {
   "name": "react-frontend-common-components",
-  "version": "0.0.78",
+  "version": "0.0.82",
   "description": "Reusable frontend library",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

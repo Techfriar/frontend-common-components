@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Select, SelectProps } from "antd";
 import { MouseEventHandler } from "react";
 import "./app-select.css";
@@ -37,19 +37,58 @@ const AppSelect = ({
   required,
   ...props
 }: AppSelectProps) => {
+  const selectRef = useRef<HTMLDivElement>(null);
+  const [selectedValue, setSelectedValue] = useState<string | null>(
+    value || null
+  );
+
+  useEffect(() => {
+    if (value !== undefined) {
+      setSelectedValue(value);
+    }
+  }, [value]);
+
+  const handleSelectChange = (val: string | string[]) => {
+    setSelectedValue(val ? String(val) : null);
+    handleChange?.(val);
+  };
+
   return (
-    <div className={`appselect ${className}`}>
+    <div className={`appselect ${className}`} ref={selectRef}>
+      {/* Show placeholder only when nothing is selected */}
+      {required && !selectedValue && (
+        <div
+          className="placeHolder"
+          onClick={() => {
+            const selectElement = selectRef.current?.querySelector(
+              ".ant-select-selector"
+            ) as HTMLElement;
+            if (selectElement) {
+              selectElement.click();
+              setTimeout(() => {
+                selectElement.dispatchEvent(
+                  new MouseEvent("mousedown", { bubbles: true })
+                );
+              }, 0);
+            }
+          }}
+        >
+          <label className="requiredText" htmlFor={props.id}>
+            {placeholder}
+          </label>
+          <span className="star">*</span>
+        </div>
+      )}
+
       <Select
         className={"select"}
         showSearch={showSearch}
         disabled={disabled}
-        value={value?.length ? value : null}
-        placeholder={`${required ? placeholder + " (required)" : placeholder}`}
-        onChange={(value: string | string[]) =>
-          handleChange && handleChange(value)
-        }
-        filterOption={(input, options) =>
-          (options?.label || "")
+        value={selectedValue || null}
+        placeholder={`${required ? "" : placeholder}`}
+        onChange={handleSelectChange}
+        filterOption={(input, option) =>
+          (option?.label || "")
             .toString()
             .toLowerCase()
             .includes(input.toLowerCase())
@@ -81,7 +120,8 @@ const AppSelect = ({
           value,
         }))}
         {...props}
-      ></Select>
+      />
+
       {errorMessage && <div className={"error"}>{errorMessage}</div>}
     </div>
   );

@@ -1,6 +1,7 @@
 .appselect {
   font-weight: 500;
   font-size: var(--font-14);
+  position: relative;
   *:focus,
   *:active,
   *:focus-within {
@@ -30,4 +31,25 @@
   color: red;
   font-size: 0.875rem;
   margin-top: 0.25rem;
+}
+
+.placeHolder {
+  line-height: normal;
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+  left: 11px;
+  z-index: 1 !important;
+}
+.requiredText {
+  opacity: 60%;
+  color: #686869 !important;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+}
+.star {
+  color: rgba(255, 40, 25, 1);
+  display: inline-block;
+  transform: translateX(1.5px);
 }
