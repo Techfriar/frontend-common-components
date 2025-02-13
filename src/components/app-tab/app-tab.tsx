@@ -8,6 +8,7 @@ interface AppTabProps {
   items?: TabsProps["items"];
   handleChange?: (activeKey: string) => void;
   defaultActiveKey?: string;
+  activeKey?:string;
 }
 
 const AppTab = ({
@@ -15,11 +16,13 @@ const AppTab = ({
   items,
   handleChange,
   defaultActiveKey,
+  activeKey,
 }: AppTabProps) => {
   return (
     <div className={`appTab ${className}`}>
       <Tabs
         defaultActiveKey={defaultActiveKey}
+        activeKey={activeKey}
         items={items}
         onChange={handleChange}
         className={"tab"}
