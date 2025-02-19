@@ -53,7 +53,7 @@ const Sidebar = ({
     className: link.path === activeLink ? "active" : "",
     label: (
       <span onClick={() => handleClick(link.path, link.onClick)}>
-        {link.label}
+        <span>{link.label}</span>
         {link.tag && <span className={"tag"}>{link.tag}</span>}
       </span>
     ),
