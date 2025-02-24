@@ -47,7 +47,6 @@ const Sidebar = ({
 
   const menuItems = links.map((link) => ({
     key: link.path || link.label,
-
     icon:
       link.path === activeLink && link.activeIcon ? link.activeIcon : link.icon,
     className: link.path === activeLink ? "active" : "",
