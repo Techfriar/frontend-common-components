@@ -1,6 +1,6 @@
 {
   "name": "react-frontend-common-components",
-  "version": "0.0.91",
+  "version": "0.0.95",
   "description": "Reusable frontend library",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -17,17 +17,17 @@
     "@rollup/plugin-terser": "0.4.4",
     "@rollup/plugin-typescript": "11.1.6",
     "postcss": "8.4.45",
-    "react": "18",
     "rollup-plugin-dts": "6.1.1",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-postcss": "4.0.2",
     "tslib": "2.7.0",
-    "typescript": "5"
+    "typescript": "5",
+    "@types/react": "18",
+    "@types/uuid": "10.0.0"
   },
   "dependencies": {
-    "@react-google-maps/api": "2.19.3",
-    "@types/react": "18.3.5",
-    "@types/uuid": "10.0.0",
+    "react": "18",
+    "@react-google-maps/api": "2.20.3",
     "antd": "5.21.5",
     "chart.js": "4.4.4",
     "react-chartjs-2": "5.2.0",

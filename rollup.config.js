@@ -28,7 +28,11 @@ export default [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({ 
+        tsconfig: "./tsconfig.json",
+        declaration: true,
+        declarationDir: "dist"
+      }),
       terser(),
       postcss(),
     ],
@@ -37,7 +41,7 @@ export default [
   // TypeScript declaration files
   {
     input: "src/index.ts",
-    output: [{ file: packageJson.types }],
+    output: [{ file: "dist/index.d.ts", format: "es" }],
     plugins: [dts.default()],
     external: [/\.css/],
   },
