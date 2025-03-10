@@ -1,4 +1,3 @@
-import React from "react";
 import { Checkbox } from "antd";
 import { CheckboxChangeEvent } from "antd/es/checkbox";
 import "./app-checkbox-text.css";

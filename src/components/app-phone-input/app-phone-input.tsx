@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "react-phone-input-2/lib/style.css";
 import PhoneInput, { CountryData } from "react-phone-input-2";
 import "./app-phone-input.css";

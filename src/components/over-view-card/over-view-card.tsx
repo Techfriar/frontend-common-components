@@ -1,8 +1,4 @@
-import React from "react";
-import { Typography } from "antd";
 import "./over-view-card.css";
-
-const { Text } = Typography;
 
 interface OverViewCardProps {
   className?: string;

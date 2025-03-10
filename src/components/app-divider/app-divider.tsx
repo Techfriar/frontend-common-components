@@ -1,4 +1,3 @@
-import React from "react";
 import { Divider, DividerProps } from "antd";
 
 interface AppDividerProps extends DividerProps {

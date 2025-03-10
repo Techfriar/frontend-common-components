@@ -1,4 +1,3 @@
-import React from "react";
 import { Radio } from "antd";
 import type { RadioChangeEvent } from "antd";
 import "./app-radio-group.css";

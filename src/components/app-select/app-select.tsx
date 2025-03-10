@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Select, SelectProps } from "antd";
 import { MouseEventHandler } from "react";
 import "./app-select.css";

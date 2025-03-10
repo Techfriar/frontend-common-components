@@ -1,4 +1,3 @@
-import React from "react";
 import { Select } from "antd";
 import type { SelectProps } from "antd";
 import "./app-select-add.css";

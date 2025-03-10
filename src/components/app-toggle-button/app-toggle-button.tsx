@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Switch } from "antd";
 import "./app-toggle-button.css";
 
