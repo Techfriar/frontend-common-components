@@ -14,6 +14,7 @@ interface AppModalProps {
   className?: string;
   closeIcon?: React.ReactNode;
   width?: number;
+  centered?: boolean
 }
 
 const AppModal = ({
@@ -27,6 +28,7 @@ const AppModal = ({
   className,
   closeIcon,
   width,
+  centered
 }: AppModalProps) => {
   return (
     <div>
@@ -37,6 +39,7 @@ const AppModal = ({
         footer={null}
         closeIcon={closeIcon || <CloseOutlined />}
         className={className}
+        centered={centered}
       >
         <div className={"header"}>
           {title && (
